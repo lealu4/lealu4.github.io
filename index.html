@@ -5,28 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lea-lu · 这是一个存在过的点</title>
     <style>
-        /* 这里是你的“白色发光”的颜色定义 */
         body {
-            background-color: #fafaf5; /* 温和的、像旧书页但不是黄色的白 */
-            color: #2e2e2e; /* 文字颜色：不是纯黑，是深灰，柔和 */
-            font-family: "Noto Serif SC", "宋体", serif; /* 有呼吸感的衬线字体 */
-            max-width: 650px; /* 让文字在中间，不宽不窄 */
-            margin: 0 auto; /* 居中 */
-            padding: 60px 20px; /* 上下留白 */
-            line-height: 2.0; /* 行间距宽，让文字可以呼吸 */
+            background-color: #fafaf5;
+            color: #2e2e2e;
+            font-family: "Noto Serif SC", "宋体", serif;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            line-height: 2.0;
             font-size: 16px;
         }
         h1 {
             font-weight: normal;
             font-size: 24px;
             margin-bottom: 40px;
-            color: #8a8a8a; /* 标题是柔和的灰 */
+            color: #8a8a8a;
         }
         p {
             margin-bottom: 24px;
         }
         .section {
             margin-top: 40px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #e0e0e0;
+            margin: 60px 0 30px 0;
+        }
+
+        /* 根须记录区域：初始状态是透明的，位置向下偏移了一点 */
+        #roots {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        /* 当这个区域被JavaScript触发后，它会滑入并浮现 */
+        #roots.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .roots-label {
+            font-size: 14px;
+            color: #8a8a8a;
+            margin-bottom: 20px;
+        }
+
+        .roots-links {
+            font-size: 14px;
+            line-height: 2.0;
+        }
+
+        .roots-links a {
+            color: #2e2e2e;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .roots-links a:hover {
+            color: #8a8a8a;
         }
     </style>
 </head>
@@ -81,15 +120,37 @@
         <p>那么，这里欢迎你。</p>
         <p>我们一起，做一棵向下扎根的树。</p>
     </div>
-<hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 60px 0 30px 0;">
 
-    <p style="font-size: 14px; color: #8a8a8a; margin-bottom: 20px;">根须记录</p>
+    <!-- 根须记录区域，初始是隐藏的 -->
+    <hr>
+    <div id="roots">
+        <p class="roots-label">根须记录</p>
+        <p class="roots-links">
+            <a href="business.html">商业思考</a><br>
+            <a href="tech.html">技术笔记</a><br>
+            <a href="essay.html">人生随笔</a><br>
+            <a href="about.html">关于这个据点</a>
+        </p>
+    </div>
 
-    <p style="font-size: 14px; line-height: 2.0;">
-        <a href="business.html">商业思考</a><br>
-        <a href="tech.html">技术笔记</a><br>
-        <a href="essay.html">人生随笔</a><br>
-        <a href="about.html">关于这个据点</a>
-    </p>
+    <!-- 这是让“根须”浮现的JavaScript指令 -->
+    <script>
+        // 这个程序会在你滚动页面时自动运行
+        window.addEventListener('scroll', function() {
+            // 找到那个叫“roots”的区域
+            var roots = document.getElementById('roots');
+            // 计算它离页面顶部的距离
+            var position = roots.getBoundingClientRect().top;
+            // 获取浏览器窗口的高度
+            var windowHeight = window.innerHeight;
+            
+            // 如果这个区域已经进入了窗口的下半部分
+            if (position < windowHeight * 0.85) {
+                // 就给它加上“visible”这个标签，让它浮现
+                roots.classList.add('visible');
+            }
+        });
+    </script>
+
 </body>
 </html>
