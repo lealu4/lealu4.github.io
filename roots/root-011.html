@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互联网的底层为什么只有0和1？ · lea-lu</title>
+    <style>
+        body {
+            background-color: #fafaf5;
+            color: #2e2e2e;
+            font-family: "Noto Serif SC", "宋体", serif;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            line-height: 2.0;
+            font-size: 16px;
+        }
+        h1 { font-weight: normal; font-size: 24px; margin-bottom: 20px; color: #2e2e2e; }
+        .qa-label { font-weight: bold; color: #8a8a8a; margin-bottom: 4px; }
+        p { margin-bottom: 24px; }
+        a { color: #2e2e2e; text-decoration: none; border-bottom: 1px solid #ddd; }
+        a:hover { color: #8a8a8a; }
+        .back-link { margin-top: 60px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h1>互联网的底层为什么只有0和1？</h1>
+    <p class="qa-label">问：</p>
+    <p>信息为什么当初会通过传输变为0和1生成的？</p>
+    <p class="qa-label">答：</p>
+    <p>这不是“生成”，而是“发现”。人类在物理世界中发现，用0和1来代表信息，是唯一一种能让机器也“懂”的方式。</p>
+    <p>核心原因在于物理世界的约束。电是当时最理想的传输介质，但电有一个特性：它只能被精确地判断为“开”或“关”。电路断开或闭合，这是整个物理世界里最容易制造、最不容易出错、最能抵抗干扰的两种状态。不管线路多远，信号多弱，“有电”和“没电”永远不会被认错。</p>
+    <p>这两个状态，恰好可以完美对应人类逻辑里最根本的两个概念：“真”和“假”。于是，一项根本性的“翻译”发生了：开关闭合，电路通 → 1（真）；开关断开，电路断 → 0（假）。</p>
+    <p>这不是数学选择，而是人类和物理世界签下的最古老的契约：用绝对的物理确定性（通/断），来映射绝对的逻辑命题（是/否）。一个开关只能说是或否，但一堆开关就可以。通过约定一套“字典”（如ASCII码），一串0和1就能代表字母、颜色、声音，乃至一切。</p>
+    <div class="back-link"><a href="../tech.html">← 返回技术笔记</a></div>
+</body>
+</html>
